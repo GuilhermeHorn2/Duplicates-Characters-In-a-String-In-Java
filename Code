@@ -1,0 +1,44 @@
+package project1;
+
+import java.util.Scanner;
+
+public class strt {
+
+	public static void main(String[] args) {
+		//find duplicate characters
+		//input:abacate ->output:a
+		System.out.println("Input a String:");
+		Scanner sc = new Scanner(System.in);
+		String scnd = sc.next();
+		String last = "";
+		for(int i = 0;i < scnd.length();i++) {
+			int c = 0;
+			//nt k = 0;
+			String x = scnd.substring(i,i+1);
+			for(int j = i;j < scnd.length();j++) {
+				if(x.equals(scnd.substring(j,j+1))) {
+					c++;
+					if(c > 1) {
+						if(in_last(x,last) == 0) {
+							last += x + ",";
+						}
+						break;
+					}
+				}
+			}
+		}
+		System.out.println(last);
+		
+
+	}
+	public static int in_last(String x,String last) {
+		//function that checks if x is in last
+		for(int i = 0;i < last.length();i++) {
+			if(x.equals(last.substring(i,i+1))){
+				return 1;
+			}
+		}
+		return 0;
+	}
+}
+
